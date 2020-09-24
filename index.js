@@ -30,7 +30,7 @@ function getName(character) {
  */
 function getFilmCount(character) {
   // TODO: Add your code inside the functions (others below).
-
+  return character.films.length;
 }
 
 /**
@@ -43,6 +43,11 @@ function getFilmCount(character) {
 */
 function getSecondStarshipName(character) {
   // TODO: Add your code here.
+  if(character.starships.length === 0){
+    return "none";
+  }else{
+    return character.starships[1].name;
+  }
 }
 
 /**
@@ -56,6 +61,7 @@ function getSecondStarshipName(character) {
  */
 function getSummary(character) {
   // TODO: Add your code here.
+  return `${character.name}, ${character.height}cm, ${character.mass}kg. Featured in ${character.films.length} films.`
 }
 
 /**
@@ -68,6 +74,11 @@ function getSummary(character) {
 */
 function getVehiclesCostInCreditsSumTotal(character) {
   // TODO: Add your code here.
+  let sumTotal = 0
+  for(let i = 0; i < character.vehicles.length;i++){
+    sumTotal += character.vehicles[i].cost_in_credits;
+  }
+  return sumTotal;
 }
 
 /**
@@ -82,6 +93,12 @@ function getVehiclesCostInCreditsSumTotal(character) {
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
   // TODO: Add your code here.
+  let sumTotal = 0;
+  for(let i = 0; i < character.starships.length; i++){
+    sumTotal += character.starships[i].crew;
+    sumTotal += character.starships[i].passengers;
+  }
+  return sumTotal;
 }
 
 /**
@@ -99,6 +116,15 @@ function getStarshipPassengerAndCrewSumTotal(character) {
 */
 function getNthFilm(character, filmNumber) {
   // TODO: Add your code here.
+  if(filmNumber === 1){
+    return character.films[0];
+  }else if(filmNumber === 2){
+    return character.films[1]
+  }else if(filmNumber === 3){
+    return character.films[2]
+  }else{
+    return `Twilight`;
+  }
 }
 
 /**
